@@ -19,9 +19,9 @@ benchmark(
   {db_drop_table(src$con, "babynames_1m"); copy_to(src, babynames_1m)},
 replications = 1, columns = c("test", "elapsed"), order = NULL)
 #  elapsed
-#1   9.446
-#2   9.802
-#3   9.793
+#1  10.411
+#2  10.330
+#3  10.302
 
 benchmark(
   df_1m <- collect(d_1m),
@@ -29,9 +29,9 @@ benchmark(
   df_1m <- collect(d_1m),
 replications = 1, columns = c("test", "elapsed"), order = NULL)
 #                    test elapsed
-#1 df_1m <- collect(d_1m)   1.797
-#2 df_1m <- collect(d_1m)   1.796
-#3 df_1m <- collect(d_1m)   1.791
+#1 df_1m <- collect(d_1m)   2.221
+#2 df_1m <- collect(d_1m)   2.212
+#3 df_1m <- collect(d_1m)   2.209
 
 all.equal(babynames_1m, df_1m)
 #[1] "Attributes: < Component “class”: Lengths (1, 3) differ (string compare on first 1) >"
@@ -45,14 +45,14 @@ class(df_1m)
 benchmark(
   {db_drop_table(src$con, "babynames_1"); copy_to(src, babynames_1)},
 replications = 1000, columns = c("test", "elapsed"))
-##  elapsed
-##1    16.33
+#  elapsed
+#1   13.51
 
 benchmark(
   df_1 <- collect(d_1),
 replications = 10000, columns = c("test", "elapsed"))
 #                  test elapsed
-#1 df_1 <- collect(d_1)   5.236
+#1 df_1 <- collect(d_1)   6.156
 
 all.equal(babynames_1, df_1)
 
