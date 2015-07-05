@@ -34,7 +34,6 @@ replications = 1, columns = c("test", "elapsed"), order = NULL)
 ##3 babynames_1m_fromdb <- dbGetQuery(conn, "select * from babynames_1m")   4.093
 
 all.equal(babynames_1m, babynames_1m_fromdb)
-## [1] "Component “prop”: Mean relative difference: 9.626189e-07"
 
 
 benchmark(

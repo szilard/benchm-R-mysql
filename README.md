@@ -16,7 +16,7 @@ https://github.com/rstats-db/RMySQL/issues/71
 
 RMySQL 1.8 sec, mysql CL 2.3 - diff: CL dumps the binary data to csv (vs unserialize into R for RMySQL)
 
-RJDBC 4 sec (also `all.equal` show `1e-7` diff in floats!)
+RJDBC 4 sec 
 
 RMySQL-dev 0.6 sec
 

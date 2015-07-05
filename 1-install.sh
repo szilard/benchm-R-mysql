@@ -48,5 +48,8 @@ devtools::install_github("rstats-db/RMySQL")
 
 
 
+sudo apt-get install unixodbc-dev
+
+install.packages("RODBC")
 
 
