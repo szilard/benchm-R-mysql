@@ -6,7 +6,7 @@
 
 RMySQL 11 sec, mysql CL 5 sec - diff: RMySQL writes a csv file first (what else?)
 
-RJDBC runs 9sec for 10K rows (about 100x slower!!) - must be inserting 1 row at a time??
+RJDBC runs 9 sec for 10K rows (about 100x slower!!) - must be inserting 1 row at a time??
 
 
 ##### Read 1 mil rows:
