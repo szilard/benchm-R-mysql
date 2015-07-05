@@ -20,10 +20,11 @@ Versions:
 (2015-07-04)
 R 3.2.1
 mysql-server 5.5.43
+DBI 0.3.1
 RMySQL 0.10.3
-RMySQL-dev 9fb0f8685a3
-RJBC 0.2-5
-RODBC 1.3-12
+RMySQL-dev 9fb0f8685a3 (with corresponding DBI)
+RJBC 0.2-5 / mysql-connector-java-5.1.36
+RODBC 1.3-12 / libmyodbc 5.1.10-3 / unixodbc-dev 2.2.14p2
 dplyr 0.4.2
 ```
 
