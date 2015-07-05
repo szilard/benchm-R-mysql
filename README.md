@@ -15,4 +15,15 @@ RJDBC/RODBC and RMySQL-dev (the later ones probably inserting 1 row at a time)
 [**] RJDBC bug? cannot do `append = TRUE`, while dplyr will create new (temporary) table
 by design
 
+```
+Versions:
+(2015-07-04)
+R 3.2.1
+mysql-server 5.5.43
+RMySQL 0.10.3
+RMySQL-dev 9fb0f8685a3
+RJBC 0.2-5
+RODBC 1.3-12
+dplyr 0.4.2
+```
 
