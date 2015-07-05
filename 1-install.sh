@@ -41,3 +41,12 @@ wget http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.36.
 tar xzf mysql-connector-java-5.1.36.tar.gz 
 cp mysql-connector-java-5.1.36/mysql-connector-java-5.1.36-bin.jar .
 
+
+
+devtools::install_github("rstats-db/DBI")
+devtools::install_github("rstats-db/RMySQL")
+
+
+
+
+
