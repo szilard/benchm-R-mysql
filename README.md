@@ -2,40 +2,14 @@
 ### Benchmarking R MySQL Data Exchange
 
 
-##### Insert 1 million rows:
+Action                     |  RMySQL | RMySQL-dev | mysql CL | RJDBC | RODBC
+---------------------------|---------|------------|----------|-------|-------
+Insert 1 mil rows [sec]    |   11    |    1100    |    5     |   900 |  1100
+Read 1 mil rows [sec]      |   1.8   |     0.6    |    2.3   |    4  |   3.4
+Insert 1 row [ms]          |    15   |    15      |          |  13   |   14
+Read 1 row [ms]            |   0.4   |    0.4     |          |   3   |   1.3
 
-RMySQL 11 sec, mysql CL 5 sec - diff: RMySQL writes a csv file first (what else?)
+Insert 1 mil rows uses `LOAD DATA` for CRAN RMySQL and is 100x faster than
+RJDBC/RODBC and RMySQL-dev!
 
-RJDBC runs 9 sec for 10K rows (about 100x slower!!) - must be inserting 1 row at a time??
-
-RMySQL-dev also 100x slower!! (11 sec for 10K rows), see earlier github issue updated
-https://github.com/rstats-db/RMySQL/issues/71
-
-
-##### Read 1 mil rows:
-
-RMySQL 1.8 sec, mysql CL 2.3 - diff: CL dumps the binary data to csv (vs unserialize into R for RMySQL)
-
-RJDBC 4 sec 
-
-RMySQL-dev 0.6 sec
-
-
-
-##### Write 1 row:
-
-RMySQL: 15 ms (millisec) including overwrite table
-
-RJDBC 13 ms 
-
-RMySQL-dev 15 ms
-
-
-##### Read 1 row:
-
-RMySQL 0.4 ms
-
-RJDBC 3 ms (10x slower)
-
-RMySQL-dev 0.4 ms
 

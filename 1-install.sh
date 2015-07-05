@@ -48,8 +48,26 @@ devtools::install_github("rstats-db/RMySQL")
 
 
 
-sudo apt-get install unixodbc-dev
+sudo apt-get install unixodbc-dev libmyodbc
+
+sudo vim /etc/odbcinst.ini 
+[MySQL ODBC Driver]
+Description = MySQL ODBC Driver
+Driver = /usr/lib/x86_64-linux-gnu/odbc/libmyodbc.so
+FileUsage = 1
+
+sudo vim /etc/odbc.ini 
+[mysql]
+Description = MySQL
+Driver = MySQL ODBC Driver
+Trace = No
+Server = localhost
+Port = 3306
+Database = bm
+User = root
+Password = 
 
 install.packages("RODBC")
+
 
 
