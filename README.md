@@ -13,5 +13,6 @@ Read 1 row [ms]            |   0.4   |    0.4     |          |   3.5 |   0.5 | 0
 RJDBC/RODBC and RMySQL-dev (the later ones probably inserting 1 row at a time)
 
 [**] RJDBC bug? cannot do `append = TRUE`, while dplyr will create new (temporary) table
+by design
 
 
