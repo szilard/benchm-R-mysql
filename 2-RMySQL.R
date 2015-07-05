@@ -6,6 +6,8 @@ library(rbenchmark)
 conn <- dbConnect(MySQL(), host = "localhost", user = "root", password = "", dbname = "bm")
 
 babynames_1m <- as.data.frame(babynames)[1:1e6,]
+babynames_1 <- babynames_1m[1,]
+
 
 benchmark(
   dbWriteTable(conn, "babynames_1m", babynames_1m, overwrite = TRUE, row.names = FALSE),
@@ -29,16 +31,19 @@ replications = 1, columns = c("test", "elapsed"), order = NULL)
 
 all.equal(babynames_1m, babynames_1m_fromdb)
 
-benchmark(
-   dbWriteTable(conn, "mtcars", mtcars, overwrite = TRUE, row.names = FALSE),
-replications = 1000, columns = c("test", "elapsed"))
-##  elapsed
-##1    16.2
 
 benchmark(
-   mtcars_fromdb <- dbGetQuery(conn, "select * from mtcars"),
+   dbWriteTable(conn, "babynames_1", babynames_1, overwrite = TRUE, row.names = FALSE),
+replications = 1000, columns = c("test", "elapsed"))
+##  elapsed
+##1    15.417
+
+benchmark(
+   babynames_1_fromdb <- dbGetQuery(conn, "select * from babynames_1"),
 replications = 10000, columns = c("test", "elapsed"))
-##                                                       test elapsed
-##1 mtcars_fromdb <- dbGetQuery(conn, "select * from mtcars")   4.774
+##                                                                 test elapsed
+##1 babynames_1_fromdb <- dbGetQuery(conn, "select * from babynames_1")   3.711
+
+all.equal(babynames_1, babynames_1_fromdb)
 
 
