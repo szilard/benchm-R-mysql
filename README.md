@@ -1,4 +1,6 @@
 
+### Benchmarking R MySQL Data Exchange
+
 
 Insert 1 million rows:
 
