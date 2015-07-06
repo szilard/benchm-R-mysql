@@ -2,6 +2,8 @@
 ### Benchmarking R MySQL Data Exchange
 
 
+#### Time
+
 Action                     |  RMySQL | RMySQL-dev | mysql CL | RJDBC | RODBC | dplyr
 ---------------------------|---------|------------|----------|-------|-------|------
 Insert 1M rows [s]         |   12    |    800*    |    6     | 900*  |  800* | 10
@@ -15,9 +17,22 @@ RJDBC/RODBC and RMySQL-dev (the later ones probably inserting 1 row at a time)
 [**] RJDBC bug? cannot do `append = TRUE`, while dplyr will create new (temporary) table
 by design
 
+#### RAM usage
+
+While reading the 1M rows dataset RAM goes up to a max value (RAM_max), then goes down
+and finally after a `gc()` call reaches RAM_after. Here is RAM/object.size:
+
+Tool     |  RAM_max |   RAM_after
+---------|----------|------------
+RMySQL   |     2    |     1
+RJDBC    |     8    |     7.5
+RODBC    |     5    |     3.5
+
+
+#### Versions
+
 ```
-Versions:
-(2015-07-04)
+2015-07-04
 R 3.2.1
 mysql-server 5.5.43
 DBI 0.3.1
